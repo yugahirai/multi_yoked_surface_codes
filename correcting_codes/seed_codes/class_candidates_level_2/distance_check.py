@@ -8,6 +8,9 @@ For a CSS code with X-check matrix ``Hx`` and Z-check matrix ``Hz``:
   * Z-type logical operators live in  ker(Hx) \\ rowspace(Hz)
   * X-type logical operators live in  ker(Hz) \\ rowspace(Hx)
   * number of logical qubits  k = n - rank(Hx) - rank(Hz)
+  * dx = min weight of a Z-type logical (the error that corrupts the X
+    logical operator); dz = min weight of an X-type logical (the error that
+    corrupts the Z logical operator)
 
 All linear algebra is done over GF(2).
 
@@ -651,6 +654,10 @@ def main() -> None:
     logical_X = logical_operators(null_space_gf2(Hz), Hx)  # ker(Hz) \ rowspace(Hx)
     X_pair, Z_pair = pair_logical_operators(logical_X, logical_Z)
 
+    # Convention: dx is the distance at which the X logical operator is
+    # corrupted, i.e. the min weight of an undetected Z error (a Z-type
+    # logical, ker(Hx) \ rowspace(Hz)).  Likewise dz is the min weight of an
+    # undetected X error (an X-type logical, ker(Hz) \ rowspace(Hx)).
     dist = {}
     for kind, H, stab, known in (
         ("Z", Hx, Hz, np.concatenate([logical_Z, Z_pair])),
@@ -660,7 +667,7 @@ def main() -> None:
         dist[kind] = coset_min_weight(
             H, stab, even_only=all_kernel_weights_even(H), upper_bound=bound
         )
-    dz, dx = dist["Z"], dist["X"]
+    dx, dz = dist["Z"], dist["X"]
 
     print(f"[[n, k, d]] = [[{n}, {k}, {min(dx, dz)}]]  (dx = {dx}, dz = {dz})")
     print(f"CSS condition Hx*Hz^T == 0 : {css_ok}")
