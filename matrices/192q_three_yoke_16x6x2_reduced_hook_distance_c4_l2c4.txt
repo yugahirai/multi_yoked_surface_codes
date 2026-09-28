@@ -1,8 +1,0 @@
-# hook-aware distance for 192q_three_yoke_16x6x2_reduced.txt
-# n = 192, k = 114; a hook on a check flips its first p (2 <= p <= wt-2) support qubits; level-1 = rows 1..12 (cost 4, ascending index order), level-2 = rows 13.. (cost 4); single-qubit fault cost 1
-# {'dz_hook': '>=8', 'dx_hook': '>=8'}
-
-Z-type hook distance (single = 1, L1 hook = 4, L2 hook = 4) >= 8: no fault set of cost <= 7 is undetectable (MAX_W reached)
-
-X-type hook distance (single = 1, L1 hook = 4, L2 hook = 4) >= 8: no fault set of cost <= 7 is undetectable (MAX_W reached)
-
