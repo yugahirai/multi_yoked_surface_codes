@@ -1,0 +1,17 @@
+[project]
+name = "muti_yoked_surface_codes"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "jupyter>=1.1.1",
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
+    "pymatching>=2.3.1",
+    "sinter>=1.15.0",
+    "stim>=1.15.0",
+    "stimbposd>=0.1.0",
+    "fire>=0.7.1",
+    "tesseract-decoder"
+]
