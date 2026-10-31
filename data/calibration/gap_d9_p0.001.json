@@ -1,0 +1,13 @@
+{
+  "kind": "space",
+  "d": 9,
+  "p": 0.001,
+  "scale": 1.0034167484865173,
+  "offset": -0.034456705161046056,
+  "num_samples": 55346000,
+  "num_mismatch": 10106,
+  "fitted_log_loss": 0.0005476460540873735,
+  "default_log_loss": 0.0005489804767779325,
+  "holdout_affine_log_loss": 0.0005476610311053292,
+  "holdout_piecewise_log_loss": 0.0005476952731018137
+}
